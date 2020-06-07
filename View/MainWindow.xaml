@@ -1,0 +1,119 @@
+﻿<Window x:Class="BoostOrderInterviewQuestion.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BoostOrderInterviewQuestion"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="400">
+    <!--CSS-->
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/BoostOrderInterviewQuestion;component/CSS/Style.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <!-- Rounded Button template-->
+            <ControlTemplate x:Key="RoundedButtons" TargetType="{x:Type ButtonBase}">
+                <Border x:Name="border" CornerRadius="4" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                    <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                </Border>
+                <ControlTemplate.Triggers>
+                    <Trigger Property="Button.IsDefaulted" Value="True">
+                        <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                    </Trigger>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" TargetName="border" Value="#FFBEE6FD"/>
+                        <Setter Property="BorderBrush" TargetName="border" Value="#FF3C7FB1"/>
+                    </Trigger>
+                    <Trigger Property="IsPressed" Value="True">
+                        <Setter Property="Background" TargetName="border" Value="#FFC4E5F6"/>
+                        <Setter Property="BorderBrush" TargetName="border" Value="#FF2C628B"/>
+                    </Trigger>
+                    <Trigger Property="ToggleButton.IsChecked" Value="True">
+                        <Setter Property="Background" TargetName="border" Value="#FFBCDDEE"/>
+                        <Setter Property="BorderBrush" TargetName="border" Value="#FF245A83"/>
+                    </Trigger>
+                    <Trigger Property="IsEnabled" Value="False">
+                        <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                        <Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
+                        <Setter Property="Foreground" Value="#FF838383"/>
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </Window.Resources>
+    <!--Code-->
+    <StackPanel>
+        <!--Catalog View-->
+        <StackPanel Name="ListOne">
+            <Grid Margin="0 0 0 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <!-- Item List-->
+                <StackPanel>
+                    <ListView Grid.Column="0" Name="Test" >
+                        <ListViewItem>
+                            Apple
+                        </ListViewItem>
+                        <ListViewItem>
+                            V001
+                        </ListViewItem>
+                        <ListViewItem>
+                            RM1.20
+                        </ListViewItem>
+                        <ListViewItem>
+                            -
+                        </ListViewItem>
+                    </ListView>
+                </StackPanel>
+                <!-- Image -->
+                <StackPanel Grid.Column="1" Margin=" 0 10 0 0">
+                    <Image Height="100" Width="100" Source="https://upload.wikimedia.org/wikipedia/commons/d/de/POL_apple.jpg"/>
+                </StackPanel>
+            </Grid>
+            <TextBlock Margin="10 0 0 10" Text="UOM"></TextBlock>
+            <!--Functions-->
+            <StackPanel Margin="10 0 0 0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <!-- Qty-->
+                    <Border Grid.Column="0" Style="{StaticResource TextBoxPadding}">
+                        <TextBox Style="{StaticResource TextBoxProperties}">KG</TextBox>
+                    </Border>
+                    <Border Grid.Column="2" Style="{StaticResource TextBoxPadding}">
+                        <TextBox x:Name="qtyTxt" Style="{StaticResource TextBoxProperties}">1</TextBox>
+                    </Border>
+                    <!--Button-->
+                    <Button x:Name="deductQtyBtn" Click="deductQty_Click" Grid.Column="1" Content="-" Style="{StaticResource BlueBtn}" Template="{DynamicResource RoundedButtons}"></Button>
+                    <Button x:Name="addQtyBtn" Click="addQty_Click" Grid.Column="3" Content="+" Style="{StaticResource BlueBtn}" Template="{DynamicResource RoundedButtons}"></Button>
+                    <!--Add to cart-->
+                    <Button x:Name="addToCartBtn" Click="addToCartBtn_Click" Grid.Column="4" Style="{StaticResource BlueBtn}" Template="{DynamicResource RoundedButtons}">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Padding="0 0 0 0" Content="{materialDesign:PackIcon Cart}"/>
+                            <Label FontSize="10" >Add to cart</Label>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+        <Separator/>
+        <!--Cart View-->
+        <StackPanel>
+            
+        </StackPanel>
+    </StackPanel>
+
+</Window>
