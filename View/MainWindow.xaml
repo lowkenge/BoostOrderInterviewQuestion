@@ -108,12 +108,22 @@
                     </Button>
                 </Grid>
             </StackPanel>
+            <!--Cart View-->
+            <StackPanel Margin=" 0 10 10 0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="4" FontSize="10" Height="25" Width="90" BorderBrush="Gray" Background="Gray" x:Name="viewCartBtn" Template="{DynamicResource RoundedButtons}" >View Cart</Button>
+                </Grid>
+            </StackPanel>
         </StackPanel>
         <Separator/>
-        <!--Cart View-->
-        <StackPanel>
-            
-        </StackPanel>
+      
     </StackPanel>
 
 </Window>
