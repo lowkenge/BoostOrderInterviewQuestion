@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BoostOrderInterviewQuestion.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,6 +46,12 @@ namespace BoostOrderInterviewQuestion
         private void addToCartBtn_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void viewCartBtn_Click(object sender, RoutedEventArgs e)
+        {
+            CartView cartView = new CartView();
+            cartView.Show();
         }
     }
 }

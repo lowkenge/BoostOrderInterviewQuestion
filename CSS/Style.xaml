@@ -28,6 +28,7 @@
 
     <Style x:Key="CartView" TargetType="Button">
         <Setter Property="Background" Value="Gray"/>
+        <Setter Property="Foreground" Value="White"/>
         <Setter Property="BorderBrush" Value="Gray"/>
         <Setter Property="Height" Value="28"/>
         <Setter Property="FontSize" Value="10"/>

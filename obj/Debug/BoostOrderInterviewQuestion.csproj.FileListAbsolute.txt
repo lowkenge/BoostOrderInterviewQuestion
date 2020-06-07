@@ -24,3 +24,5 @@ C:\Users\TP033594\source\repos\BoostOrderInterviewQuestion\obj\Debug\BoostOrderI
 C:\Users\TP033594\source\repos\BoostOrderInterviewQuestion\obj\Debug\BoostOrderInterviewQuestion.exe
 C:\Users\TP033594\source\repos\BoostOrderInterviewQuestion\obj\Debug\BoostOrderInterviewQuestion.pdb
 C:\Users\TP033594\source\repos\BoostOrderInterviewQuestion\obj\Debug\BoostOrderInterviewQuestion.csprojAssemblyReference.cache
+C:\Users\TP033594\source\repos\BoostOrderInterviewQuestion\obj\Debug\View\CartView.g.cs
+C:\Users\TP033594\source\repos\BoostOrderInterviewQuestion\obj\Debug\View\CartView.baml
