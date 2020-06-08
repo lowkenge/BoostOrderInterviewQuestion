@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BoostOrderInterviewQuestion.Controller;
+using BoostOrderInterviewQuestion.Model;
 
 namespace BoostOrderInterviewQuestion
 {
@@ -25,6 +27,9 @@ namespace BoostOrderInterviewQuestion
         public MainWindow()
         {
             InitializeComponent();
+            CartController controller = new CartController();
+            controller.start_get();
+            
         }
 
         private void deductQty_Click(object sender, RoutedEventArgs e)
@@ -34,13 +39,15 @@ namespace BoostOrderInterviewQuestion
 
         private void addQty_Click(object sender, RoutedEventArgs e)
         {
+            CartModel model = new CartModel();
             var qtyTxt = this.qtyTxt.Text;
-            int qty;
-            Int32.TryParse(qtyTxt, out qty);
-            int totalQty = qty = qty + 1;
-            var qtyAmt = totalQty.ToString();
-            MessageBox.Show(qtyAmt);
-            qtyTxt = qtyAmt;
+            qtyTxt = model.name;
+            MessageBox.Show(model.name);
+            //Int32.TryParse(qtyTxt, out qty);
+            //int totalQty = qty = qty + 1;
+            //var qtyAmt = totalQty.ToString();
+            //MessageBox.Show(qtyAmt);
+            //qtyTxt = qtyAmt;
         }
 
         private void addToCartBtn_Click(object sender, RoutedEventArgs e)
@@ -52,6 +59,7 @@ namespace BoostOrderInterviewQuestion
         {
             CartView cartView = new CartView();
             cartView.Show();
+
         }
     }
 }
