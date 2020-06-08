@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BoostOrderInterviewQuestion.Controller;
 using BoostOrderInterviewQuestion.Model;
+using Newtonsoft.Json.Linq;
 
 namespace BoostOrderInterviewQuestion
 {
@@ -61,5 +62,17 @@ namespace BoostOrderInterviewQuestion
             cartView.Show();
 
         }
+
+        //protected void viewData()
+        //{
+        //    string jsonData = @"{  
+        //    'FirstName':'Jignesh',  
+        //    'LastName':'Trivedi'  
+        //    }";
+        //    dynamic data = JObject.Parse(jsonData);
+
+        //    Console.WriteLine(string.Concat("Hi ", data.FirstName, " " + data.LastName));
+        //    Console.ReadLine();
+        //}
     }
 }
